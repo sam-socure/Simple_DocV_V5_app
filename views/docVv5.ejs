@@ -1,0 +1,28 @@
+<html>
+    <head>
+      <script src="https://websdk.socure.com/bundle.js"></script>
+    </head>
+    <body>
+      <button onclick="start()">Start Verification</button>
+      <div id="websdk"></div>
+      <script>
+        var config = {
+          onProgress: function(event) {
+            console.log("this is onprogress ", event)
+            //if success redirect to success path
+           },
+          onSuccess: function(response) { 
+            console.log("this is onsuccess ", response)
+            //if success go to success path
+           },
+          onError: function(error) { /* Implement onError */ },
+           qrCodeNeeded: true // Specify whether a QR code is needed for handoff
+         };
+         inputData= {
+
+         }
+         function start() {
+           SocureDocVSDK.launch("sdk_key", "docvtransactiontoken", "#websdk", config)
+} </script>
+     </body>
+   </html>
